@@ -20,7 +20,7 @@ var BookCh = make(chan models.Book, 100)
 
 func Init() {
 	//DB Credentials loading
-	godotenv.Load("internal/config/.env")
+	godotenv.Load(".env")
 	Db_name := os.Getenv("DB_NAME")
 	Db_user := os.Getenv("DB_USER")
 	Db_pass := os.Getenv("DB_PASS")

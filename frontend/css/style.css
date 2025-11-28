@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #1e293b;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.center {
+  text-align: center;
+  margin-top: 20vh;
+}
+
+/* Branding */
+.brand {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #475569;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background-color: #2563eb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  margin: 0.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #1e40af;
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+label {
+  font-weight: 500;
+}
+
+input {
+  padding: 0.5rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px #2563eb;
+}
+
+/* Links */
+.link {
+  display: inline-block;
+  margin: 1rem 0;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+/* Status & Messages */
+.status {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
+/* Results */
+.results {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.card p {
+  margin: 0.25rem 0;
+}
+
+.card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: white;
+  background: #2563eb;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.card a:hover {
+  background: #1e40af;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.search-bar input {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Loading Spinner */
+.spinner {
+  border: 4px solid #e2e8f0;
+  border-top: 4px solid #2563eb;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+  margin: 1rem auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

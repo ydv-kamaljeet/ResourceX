@@ -5,9 +5,9 @@ import (
 	"log"
 
 	"book.com/internal/db"
-	"book.com/internal/handlers"
 	"book.com/internal/models"
 	"book.com/internal/routes"
+	"book.com/internal/storage"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,8 +25,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Failed to migrate database schema")
 	}
-	//go-routine to save the data into db that is present in channel.
-	go handlers.SaveToDB()
+	storage.InitAzureBlob() // ✅ Init Azure connection
+
 	// Routes
 	routes.SetupRoutes(r)
 

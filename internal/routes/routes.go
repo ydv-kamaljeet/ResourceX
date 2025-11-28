@@ -10,14 +10,26 @@ import (
 func SetupRoutes(r *gin.Engine) {
 	book := r.Group("/books")
 	book.Use(
-		middleware.Authenticate(),
 		middleware.Logger(),
 		middleware.ResponseMiddleware(),
 	)
 	{
-		book.GET("/see", handlers.SeeBooks)
-		book.POST("/add", handlers.AddBook)
-		book.PUT("/update", handlers.Update)
-		book.DELETE("/delete/:id", handlers.Delete)
+		book.GET("/search", handlers.SearchBook)
+		book.POST("/upload", handlers.UploadBook)
+
 	}
+
+	r.Static("/css", "./frontend/css")
+	r.Static("/js", "./frontend/js")
+
+	// HTML pages
+	r.GET("/", func(c *gin.Context) {
+		c.File("./frontend/index.html")
+	})
+	r.GET("/upload", func(c *gin.Context) {
+		c.File("./frontend/upload.html")
+	})
+	r.GET("/search", func(c *gin.Context) {
+		c.File("./frontend/search.html")
+	})
 }
