@@ -1,3 +1,5 @@
+const API_BASE = "https://resourcex-tcem.onrender.com";
+
 document.getElementById("search-button").addEventListener("click", async () => {
   const query = document.getElementById("search-input").value.trim();
   const resultsContainer = document.getElementById("results-container");
@@ -9,11 +11,7 @@ document.getElementById("search-button").addEventListener("click", async () => {
   messagesDiv.innerHTML = '<div class="spinner"></div> Searching...';
 
   try {
-    const response = await fetch(`/books/search?q=${encodeURIComponent(query)}`,{
-      headers: {
-        "token": "authOK"
-      }
-    });
+    const response = await fetch(`${API_BASE}/books/search?q=${encodeURIComponent(query)}`);
     const data = await response.json();
 
     if (!response.ok) {
@@ -36,6 +34,7 @@ document.getElementById("search-button").addEventListener("click", async () => {
         <p><strong>Price:</strong> $${book.price}</p>
         <a href="${book.url}" target="_blank">Download PDF</a>
       `;
+
       resultsContainer.appendChild(card);
     });
   } catch (err) {

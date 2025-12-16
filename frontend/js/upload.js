@@ -1,4 +1,4 @@
-const API_BASE = "https://resourcex-wrny.onrender.com";
+const API_BASE = "https://resourcex-tcem.onrender.com";
 
 document.getElementById("upload-form").addEventListener("submit", async (e) => {
   e.preventDefault();
