@@ -6,7 +6,6 @@ import (
 	"os"
 
 	"book.com/internal/db"
-	"book.com/internal/models"
 	"book.com/internal/routes"
 	"book.com/internal/storage"
 	"github.com/gin-contrib/cors"
@@ -30,10 +29,10 @@ func main() {
 	}
 	fmt.Println("App started successfully after DB connection.")
 
-	err := db.DB.AutoMigrate(&models.Book{})
-	if err != nil {
-		log.Fatal("Failed to migrate database schema")
-	}
+	// err := db.DB.AutoMigrate(&models.Book{})
+	// if err != nil {
+	// 	log.Fatal("Failed to migrate database schema")
+	// }
 	storage.InitAzureBlob() // ✅ Init Azure connection
 
 	// Routes
