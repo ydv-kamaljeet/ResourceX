@@ -54,11 +54,20 @@ func Init() {
 	if err != nil {
 		log.Fatal("Failed to connect database: ", err)
 	}
+
 	//checking if connection is established or not.
 	sqlDB, err := DB.DB()
-	err = sqlDB.Ping()
 	if err != nil {
-		log.Fatal("Database ping failed")
+		log.Fatal("Failed to get sql.DB", err)
+	}
+
+	sqlDB.SetMaxIdleConns(5)
+	sqlDB.SetMaxOpenConns(10)
+	sqlDB.SetConnMaxIdleTime(5 * time.Minute)
+	sqlDB.SetConnMaxLifetime(30 * time.Minute)
+
+	if err := sqlDB.Ping(); err != nil {
+		log.Fatal("Database ping failed:", err)
 	}
 	fmt.Println("Database connection successful!")
 }

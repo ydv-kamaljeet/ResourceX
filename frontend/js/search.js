@@ -1,4 +1,4 @@
-const API_BASE = "https://resourcex-tcem.onrender.com";
+const API_BASE = "https://resourcex-production.up.railway.app";
 
 document.getElementById("search-button").addEventListener("click", async () => {
   const query = document.getElementById("search-input").value.trim();
